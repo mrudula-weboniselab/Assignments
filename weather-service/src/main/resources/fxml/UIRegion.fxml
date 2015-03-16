@@ -1,0 +1,37 @@
+<?import javafx.scene.control.*?>
+
+<?import javafx.scene.layout.*?>
+
+
+<fx:root type="javafx.scene.layout.VBox" stylesheets="/css/weather_demo.css" styleClass="uiRegion" xmlns:fx="http://javafx.com/fxml">
+
+    <HBox styleClass="weatherBox">
+        <Label text="Weather Report" styleClass="headerLable"></Label>
+    </HBox>
+
+    <HBox>
+        <HBox styleClass="weatherBox">
+            <Label text="Enter City :"></Label>
+            </HBox>
+        <HBox styleClass="weatherBox">
+            <TextField promptText="Enter City" fx:id="cityName"></TextField>
+        </HBox>
+        <HBox styleClass="weatherBox">
+            <Button text="Search" styleClass="button" onAction="#urlEncoder"></Button>
+        </HBox>
+    </HBox>
+
+    <HBox>
+    <HBox styleClass="weatherBox">
+        <Label text="Enter Lat Lng :"></Label>
+        <TextField promptText="lat"></TextField>
+        </HBox>
+    <HBox>
+        <TextField promptText="lng"></TextField>
+    </HBox>
+    <HBox styleClass="weatherBox">
+        <Button text="Search"></Button>
+    </HBox>
+    </HBox>
+
+</fx:root>
