@@ -5,33 +5,39 @@
 
 <fx:root type="javafx.scene.layout.VBox" stylesheets="/css/weather_demo.css" styleClass="uiRegion" xmlns:fx="http://javafx.com/fxml">
 
-    <HBox styleClass="weatherBox">
-        <Label text="Weather Report" styleClass="headerLable"></Label>
-    </HBox>
-
     <HBox>
-        <HBox styleClass="weatherBox">
-            <Label text="Enter City :"></Label>
+        <VBox>
+            <HBox>
+                <HBox styleClass="weatherBox">
+                    <Label text="Enter City :"></Label>
+                    </HBox>
+                <HBox styleClass="weatherBox">
+                    <TextField promptText="Enter City" fx:id="cityNameTextField"></TextField>
+                </HBox>
+                <HBox styleClass="weatherBox">
+                    <Button text="Search" styleClass="button" fx:id="citySearch"></Button>
+                </HBox>
             </HBox>
-        <HBox styleClass="weatherBox">
-            <TextField promptText="Enter City" fx:id="cityName"></TextField>
-        </HBox>
-        <HBox styleClass="weatherBox">
-            <Button text="Search" styleClass="button" onAction="#urlEncoder"></Button>
-        </HBox>
-    </HBox>
 
-    <HBox>
-    <HBox styleClass="weatherBox">
-        <Label text="Enter Lat Lng :"></Label>
-        <TextField promptText="lat"></TextField>
-        </HBox>
-    <HBox>
-        <TextField promptText="lng"></TextField>
-    </HBox>
-    <HBox styleClass="weatherBox">
-        <Button text="Search"></Button>
-    </HBox>
+            <HBox>
+                <HBox styleClass="weatherBox">
+                    <Label text="Enter Lat Lng :"></Label>
+                    <TextField promptText="lat" fx:id="lat"></TextField>
+                    </HBox>
+                <HBox>
+                    <TextField promptText="lng" fx:id="lng"></TextField>
+                </HBox>
+                <HBox styleClass="weatherBox">
+                    <Button text="Search" fx:id="latLngSearch"></Button>
+                </HBox>
+            </HBox>
+        </VBox>
+        <VBox fx:id="weatherInfo">
+            <HBox>
+                <VBox fx:id="weatherDataInfo" styleClass="weatherDataInfo"></VBox>
+                <VBox fx:id="weatherDataInfo1" styleClass="weatherDataInfo"></VBox>
+            </HBox>
+        </VBox>
     </HBox>
 
 </fx:root>

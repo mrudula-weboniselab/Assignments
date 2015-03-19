@@ -1,13 +1,6 @@
 .mapRegion{
-    /*-fx-pref-width: 1100;
-    -fx-min-width: 1100;
-    -fx-max-width: 1100;
-    -fx-max-height: 700;
-    -fx-pref-height: 700;
-    -fx-min-height: 700;*/
     -fx-padding: 200 100%;
     -fx-background-color: blue;
-
 }
 .uiRegion{
       -fx-padding:10 0 10 0;
@@ -25,6 +18,18 @@
 }
 .headerLable{
      -fx-font-family:'QuicksandBold-Regular';
-     -fx-font-size: 18;
+     -fx-font-size: 20;
      -fx-text-fill: blue;
+}
+.keyLable{
+     -fx-font-family:'QuicksandBold-Regular';
+     -fx-font-size: 12;
+}
+.valueLable{
+    -fx-font-family:'QuicksandBold-Regular';
+    -fx-font-size: 12;
+    -fx-text-fill: blue;
+}
+.weatherDataInfo{
+   -fx-padding:0 0 0 20;
 }
