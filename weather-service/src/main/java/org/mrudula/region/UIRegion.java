@@ -9,8 +9,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.InputEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import org.mrudula.utils.WeatherQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.util.*;
@@ -18,7 +20,7 @@ import java.util.*;
 /**
  * Created by webonise on 16-03-2015.
  */
-
+@Component
 public class UIRegion extends VBox {
     private static final Logger LOG = LoggerFactory.getLogger(UIRegion.class);
 
@@ -37,10 +39,15 @@ public class UIRegion extends VBox {
     @FXML
     private Button latLngSearch;
 
-    public MapRegion mapRegion=new MapRegion();
+
+    /*@Autowired
+    WeatherQuery weatherQuery;*/
+
+    WeatherQuery weatherQuery = new WeatherQuery();
+
 
     public List<HBox> listOfWeatherData = new ArrayList<>();
-    public List<HBox> listOfWeatherData1 = new ArrayList<>();
+    public List<HBox> listOfWeatherData1 =  new ArrayList<>();
 
     public UIRegion() {
         super();
@@ -61,8 +68,8 @@ public class UIRegion extends VBox {
             public void handle(InputEvent event) {
                 LOG.debug("EVENT: "+weatherDataInfo.getChildren().size());
                 clearWeatherData();
-                mapRegion.findWeatherByLocation(cityNameTextField.getText(),"c");
-                Set set = mapRegion.getWeatherData().entrySet();
+                weatherQuery.findWeatherByLocation(cityNameTextField.getText(),"c");
+                Set set = weatherQuery.getWeatherData().entrySet();
                 Iterator iterator = set.iterator();
                 int count = 0;
                 while (iterator.hasNext()){
@@ -91,8 +98,8 @@ public class UIRegion extends VBox {
             @Override
             public void handle(InputEvent event) {
                 clearWeatherData();
-                mapRegion.findWeatherByLatLng(lng.getText(), lat.getText(), "c");
-                Set set = mapRegion.getWeatherData().entrySet();
+                weatherQuery.findWeatherByLatLng(lng.getText(), lat.getText(), "c");
+                Set set = weatherQuery.getWeatherData().entrySet();
                 Iterator iterator = set.iterator();
                 int count = 0;
                 while (iterator.hasNext()){
@@ -122,9 +129,9 @@ public class UIRegion extends VBox {
 
 
     public void defaultWeatherDataInfo(){
-        mapRegion.findWeatherByLocation("London", "c");
+        weatherQuery.findWeatherByLocation("London", "c");
         weatherDataInfo.getChildren().removeAll();
-        Set set = mapRegion.getWeatherData().entrySet();
+        Set set = weatherQuery.getWeatherData().entrySet();
         Iterator iterator = set.iterator();
         int count = 0;
         while (iterator.hasNext()){
@@ -147,18 +154,15 @@ public class UIRegion extends VBox {
     }
 
     public void clearWeatherData(){
-        LOG.debug("in Clear data : Size: "+weatherDataInfo.getChildren().size()+" : "+weatherDataInfo1.getChildren().size());
         weatherDataInfo.getChildren().clear();
         weatherDataInfo1.getChildren().clear();
-        LOG.debug("in Clear data : Size: After : "+weatherDataInfo.getChildren().size()+" : "+weatherDataInfo1.getChildren().size());
-
     }
 
     public void weatherDataFromMap(String lon,String lats){
         LOG.debug("FROM MAP: ");
         clearWeatherData();
-        mapRegion.findWeatherByLatLng(lon, lats, "c");
-        Set set = mapRegion.getWeatherData().entrySet();
+        weatherQuery.findWeatherByLatLng(lon, lats, "c");
+        Set set = weatherQuery.getWeatherData().entrySet();
         Iterator iterator = set.iterator();
         int count = 0;
         while (iterator.hasNext()){
