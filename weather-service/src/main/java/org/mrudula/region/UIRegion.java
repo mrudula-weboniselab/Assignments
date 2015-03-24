@@ -39,12 +39,7 @@ public class UIRegion extends VBox {
     @FXML
     private Button latLngSearch;
 
-
-    /*@Autowired
-    WeatherQuery weatherQuery;*/
-
     WeatherQuery weatherQuery = new WeatherQuery();
-
 
     public List<HBox> listOfWeatherData = new ArrayList<>();
     public List<HBox> listOfWeatherData1 =  new ArrayList<>();

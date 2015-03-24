@@ -29,11 +29,7 @@ public class MapRegion extends VBox {
     @FXML
     private VBox map;
 
-   /* @Autowired
-    WeatherQuery weatherQuery;*/
-
     WeatherQuery weatherQuery = new WeatherQuery();
-
     JSObject jsObject;
 
     public MapRegion(){
@@ -62,12 +58,7 @@ public class MapRegion extends VBox {
     }
 
     public void findWeatherFromMap(String lon,String lat, String unitType) {
-        weatherQuery.findWeatherFromMap(lon,lat,unitType);
+        weatherQuery.findWeatherFromMap(lon,lat,unitType,jsObject);
     }
-
-    public void setJSObject(String json){
-        jsObject.setMember("temp",json);
-    }
-
 
 }
