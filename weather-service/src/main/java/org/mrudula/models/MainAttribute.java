@@ -1,19 +1,28 @@
 package org.mrudula.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * Created by webonise on 23-03-2015.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class MainAttribute {
+    @JsonProperty
     private String temp;
+    @JsonProperty
     private String pressure;
+    @JsonProperty
     private String humidity;
+    @JsonProperty
     private String temp_min;
+    @JsonProperty
     private String temp_max;
+    @JsonProperty
     private String sea_level;
+    @JsonProperty
     private String grnd_level;
+
 
     public String getTemp() {
         return temp;
@@ -60,4 +69,6 @@ public class MainAttribute {
     }
 
     public String getGrnd_level() { return grnd_level; }
+
+
 }

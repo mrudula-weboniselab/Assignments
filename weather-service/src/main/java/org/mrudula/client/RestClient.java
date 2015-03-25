@@ -53,6 +53,8 @@ public class RestClient {
         String sunset = df.format(new Date(resultSunset * 1000).getTime());
         weatherData.put("City Name : ", weatherResult.getName());
         weatherData.put("Country : ", weatherResult.getSys().getCountry());
+        weatherData.put("Latitude : ", weatherResult.getCoord().getLat());
+        weatherData.put("Longitude : ", weatherResult.getCoord().getLon());
         weatherData.put("Date : ",weatherResult.getDt());
         weatherData.put("Temp : ", weatherResult.getMain().getTemp() + " " + DEGREE + "C");
         weatherData.put("maxTemp : ",weatherResult.getMain().getTemp_max() + " " + DEGREE + "C");

@@ -1,5 +1,6 @@
 package org.mrudula.utils;
 
+import org.codehaus.jackson.annotate.JsonProperty;
 import org.mrudula.models.*;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 /**
@@ -8,16 +9,29 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class WeatherResult {
+    @JsonProperty
     private CoordAttribute coord;
+    @JsonProperty
     private SysAttribute sys;
+    @JsonProperty
     private WeatherAttribute[] weather;
+    @JsonProperty
     private String base;
+    @JsonProperty
     private MainAttribute main;
+    @JsonProperty
     private WindAttribute wind;
+    @JsonProperty
     private CloudsAttribute clouds;
+    @JsonProperty
     private String dt;
+    @JsonProperty
     private String id;
+    @JsonProperty
     private String name;
+    @JsonProperty
+    private String visibility;
+    @JsonProperty
     private String cod;
 
     public CoordAttribute getCoord() {
@@ -63,5 +77,7 @@ public class WeatherResult {
     public String getCod() {
         return cod;
     }
+
+    public String getVisibility() {  return visibility; }
 
 }

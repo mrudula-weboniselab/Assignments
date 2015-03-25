@@ -1,28 +1,31 @@
 package org.mrudula.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * Created by webonise on 23-03-2015.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class CoordAttribute {
-    private double lon;
-    private double lat;
+    @JsonProperty
+    private String lon;
+    @JsonProperty
+    private String lat;
 
-    public double getLon() {
+    public String getLon() {
         return lon;
     }
 
-    public void setLon(double lon) {
+    public void setLon(String lon) {
         this.lon = lon;
     }
 
-    public double getLat() {
+    public String getLat() {
         return lat;
     }
 
-    public void setLat(double lat) {
+    public void setLat(String lat) {
         this.lat = lat;
     }
 }

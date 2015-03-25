@@ -61,7 +61,6 @@ public class UIRegion extends VBox {
         EventHandler<InputEvent> eventHandler = new EventHandler<InputEvent>() {
             @Override
             public void handle(InputEvent event) {
-                LOG.debug("EVENT: "+weatherDataInfo.getChildren().size());
                 clearWeatherData();
                 weatherQuery.findWeatherByLocation(cityNameTextField.getText(),"c");
                 Set set = weatherQuery.getWeatherData().entrySet();
@@ -77,8 +76,7 @@ public class UIRegion extends VBox {
                     labelKey.getStyleClass().add("keyLable");
                     lableValue.getStyleClass().add("valueLable");
                     hBox.getChildren().addAll(labelKey,lableValue);
-
-                    if(count <= 5) {
+                    if(count <= 6) {
                         listOfWeatherData.add(hBox);
                     }else{
                         listOfWeatherData1.add(hBox);
@@ -86,8 +84,7 @@ public class UIRegion extends VBox {
                 }
                 weatherDataInfo.getChildren().addAll(listOfWeatherData);
                 weatherDataInfo1.getChildren().addAll(listOfWeatherData1);
-
-            }
+             }
         };
         EventHandler<InputEvent> eventHandlerForLatLong = new EventHandler<InputEvent>() {
             @Override
@@ -107,7 +104,7 @@ public class UIRegion extends VBox {
                     labelKey.getStyleClass().add("keyLable");
                     lableValue.getStyleClass().add("valueLable");
                     hBox.getChildren().addAll(labelKey,lableValue);
-                    if(count <= 5) {
+                    if(count <= 6) {
                         listOfWeatherData.add(hBox);
                     }else{
                         listOfWeatherData1.add(hBox);
@@ -118,6 +115,7 @@ public class UIRegion extends VBox {
 
             }
         };
+
         citySearch.setOnMouseClicked(eventHandler);
         latLngSearch.setOnMouseClicked(eventHandlerForLatLong);
     }
@@ -139,16 +137,17 @@ public class UIRegion extends VBox {
             labelKey.getStyleClass().add("keyLable");
             lableValue.getStyleClass().add("valueLable");
             hBox.getChildren().addAll(labelKey,lableValue);
-            if(count <= 5) {
+            if(count <= 6) {
                 weatherDataInfo.getChildren().add(hBox);
             }else{
                 weatherDataInfo1.getChildren().add(hBox);
             }
         }
-
     }
 
     public void clearWeatherData(){
+        listOfWeatherData.clear();
+        listOfWeatherData1.clear();
         weatherDataInfo.getChildren().clear();
         weatherDataInfo1.getChildren().clear();
     }

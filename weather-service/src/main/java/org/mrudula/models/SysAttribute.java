@@ -1,17 +1,24 @@
 package org.mrudula.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import org.codehaus.jackson.annotate.JsonProperty;
 
 /**
  * Created by webonise on 23-03-2015.
  */
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class SysAttribute {
+    @JsonProperty
     private String type;
+    @JsonProperty
     private String id;
+    @JsonProperty
     private String message;
+    @JsonProperty
     private String country;
+    @JsonProperty
     private String sunrise;
+    @JsonProperty
     private String sunset;
 
     public String getType() {
