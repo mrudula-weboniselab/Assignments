@@ -12,6 +12,8 @@ public class MainAttribute {
     private String humidity;
     private String temp_min;
     private String temp_max;
+    private String sea_level;
+    private String grnd_level;
 
     public String getTemp() {
         return temp;
@@ -52,4 +54,10 @@ public class MainAttribute {
     public void setTemp_max(String tempMax) {
         this.temp_max = tempMax;
     }
+
+    public String getSea_level() {
+        return sea_level;
+    }
+
+    public String getGrnd_level() { return grnd_level; }
 }
