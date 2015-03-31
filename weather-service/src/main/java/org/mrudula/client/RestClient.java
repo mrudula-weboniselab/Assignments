@@ -51,6 +51,7 @@ public class RestClient {
         SimpleDateFormat df = new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH);
         String sunrise = df.format(new Date(resultSunrise * 1000).getTime());
         String sunset = df.format(new Date(resultSunset * 1000).getTime());
+
         weatherData.put("City Name : ", weatherResult.getName());
         weatherData.put("Country : ", weatherResult.getSys().getCountry());
         weatherData.put("Latitude : ", weatherResult.getCoord().getLat());

@@ -22,17 +22,12 @@ public class WeatherResult {
     @JsonProperty
     private WindAttribute wind;
     @JsonProperty
-    private CloudsAttribute clouds;
-    @JsonProperty
     private String dt;
     @JsonProperty
     private String id;
     @JsonProperty
     private String name;
-    @JsonProperty
-    private String visibility;
-    @JsonProperty
-    private String cod;
+
 
     public CoordAttribute getCoord() {
         return coord;
@@ -58,10 +53,6 @@ public class WeatherResult {
         return wind;
     }
 
-    public CloudsAttribute getClouds() {
-        return clouds;
-    }
-
     public String getDt() {
         return dt;
     }
@@ -74,10 +65,6 @@ public class WeatherResult {
         return name;
     }
 
-    public String getCod() {
-        return cod;
-    }
 
-    public String getVisibility() {  return visibility; }
 
 }

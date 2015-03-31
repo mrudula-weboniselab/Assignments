@@ -10,6 +10,7 @@ import netscape.javascript.JSObject;
 import org.mrudula.utils.WeatherQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -22,6 +23,9 @@ import java.net.URL;
 public class MapRegion extends VBox {
     private static final Logger LOG = LoggerFactory.getLogger(MapRegion.class);
 
+    @Autowired
+    private WeatherQuery weatherQuery;
+
     @FXML
     private VBox mapRegion;
     @FXML
@@ -29,7 +33,6 @@ public class MapRegion extends VBox {
     @FXML
     private VBox map;
 
-    WeatherQuery weatherQuery = new WeatherQuery();
     JSObject jsObject;
 
     public MapRegion(){
@@ -58,7 +61,7 @@ public class MapRegion extends VBox {
     }
 
     public void findWeatherFromMap(String lon,String lat, String unitType) {
-        weatherQuery.findWeatherFromMap(lon,lat,unitType,jsObject);
+            weatherQuery.findWeatherFromMap(lon,lat,unitType,jsObject);
     }
 
 }
