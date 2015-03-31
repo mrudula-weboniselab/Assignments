@@ -99,7 +99,7 @@ public class UIRegion extends VBox {
         weatherDataInfo1.getChildren().clear();
     }
 
-    public void weatherDataFromMap(String mapLng, String mapLat) {
+    public void weatherDataFromMap(final String mapLng, final String mapLat) {
         CoordAttribute coordAttribut = new CoordAttribute();
         coordAttributeProperty().addListener(new ChangeListener<CoordAttribute>() {
             @Override
