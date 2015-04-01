@@ -10,6 +10,7 @@ import javafx.scene.input.InputEvent;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import org.mrudula.events.mouse.MouseEventExample;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
@@ -38,7 +39,6 @@ public class MainEventController extends GridPane {
         add(outputTextArea,1,3,4,3);
         this.setPadding(new Insets(30,0,10,0));
         primaryStage.setTitle("EVENT HANDLING EXAMPLES");
-        //Scene scene = new Scene(this,450,200);
 
         primaryStage.setScene(scene);
         primaryStage.show();
@@ -68,6 +68,15 @@ public class MainEventController extends GridPane {
         };
 
         keyEventButton.setOnMouseClicked(keyEventHandler);
+
+        final EventHandler<InputEvent> mouseEventHandler = new EventHandler<InputEvent>() {
+            @Override
+            public void handle(InputEvent event) {
+                MouseEventExample mouseEventExample = new MouseEventExample();
+            }
+        };
+
+        mouseEventButton.setOnMouseClicked(mouseEventHandler);
 
     }
 
