@@ -1,8 +1,6 @@
 package org.mrudula.region;
 
 import javafx.beans.property.SimpleObjectProperty;
-import javafx.beans.value.ChangeListener;
-import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -100,18 +98,16 @@ public class UIRegion extends VBox {
     }
 
     public void weatherDataFromMap(final String mapLng, final String mapLat) {
-        CoordAttribute coordAttribut = new CoordAttribute();
-        coordAttributeProperty().addListener(new ChangeListener<CoordAttribute>() {
-            @Override
-            public void changed(ObservableValue<? extends CoordAttribute> observable, CoordAttribute oldValue, CoordAttribute newValue) {
-                LOG.debug("EVENT OCCURS : " + lat);
-                clearWeatherData();
-                weatherQuery.findWeatherByLatLng(mapLng, mapLat, "c");
-                showWeatherData();
-                LOG.debug("End MAP: ");
-            }
+        latLngSearch.setOnAction(event -> {
+            LOG.debug("EVENT OCCURS : " + lat.getText());
+            clearWeatherData();
+            weatherQuery.findWeatherByLatLng(lng.getText(),lat.getText(),"c");
+            showWeatherData();
         });
-        setCoordAttribute(coordAttribut);
+
+        lat.setText(mapLat);
+        lng.setText(mapLng);
+        latLngSearch.fire();
     }
 
     public void showWeatherData(){

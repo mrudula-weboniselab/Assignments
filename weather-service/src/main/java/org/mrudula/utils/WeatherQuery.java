@@ -6,6 +6,7 @@ import org.mrudula.client.RestClient;
 import org.mrudula.region.UIRegion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
@@ -17,6 +18,9 @@ import java.util.LinkedHashMap;
 @Component
 public class WeatherQuery extends Region {
     private static final Logger LOG = LoggerFactory.getLogger(WeatherQuery.class);
+
+    @Autowired
+    UIRegion uiRegion;
 
     public static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
     public LinkedHashMap weatherData = new LinkedHashMap();
@@ -48,7 +52,6 @@ public class WeatherQuery extends Region {
         restClient.performGet(weatherRequest);
         weatherData = restClient.getWeatherData();
         jsObject.setMember("temp", (String) weatherData.get("Temp : "));
-        UIRegion uiRegion = new UIRegion();
         uiRegion.weatherDataFromMap(lon,lat);
     }
 
