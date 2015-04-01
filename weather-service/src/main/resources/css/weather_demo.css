@@ -1,0 +1,35 @@
+.mapRegion{
+    -fx-padding: 200 100%;
+    -fx-background-color: blue;
+}
+.uiRegion{
+      -fx-padding:10 0 10 0;
+}
+.weatherBox{
+     -fx-padding:0 10 10 10;
+}
+.button{
+    -fx-background-color: blue;
+    -fx-background-radius: 3px;
+    -fx-font-family:'QuicksandBold-Regular';
+    -fx-font-size: 14;
+    -fx-text-fill: #ffffff;
+
+}
+.headerLable{
+     -fx-font-family:'QuicksandBold-Regular';
+     -fx-font-size: 20;
+     -fx-text-fill: blue;
+}
+.keyLable{
+     -fx-font-family:'QuicksandBold-Regular';
+     -fx-font-size: 12;
+}
+.valueLable{
+    -fx-font-family:'QuicksandBold-Regular';
+    -fx-font-size: 12;
+    -fx-text-fill: blue;
+}
+.weatherDataInfo{
+   -fx-padding:0 0 0 20;
+}
