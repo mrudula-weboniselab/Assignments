@@ -8,6 +8,12 @@
     <artifactId>event-handling</artifactId>
     <version>1.0-SNAPSHOT</version>
 
+    <parent>
+        <groupId>org.mrudula</groupId>
+        <artifactId>Assignments</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
     <properties>
         <spring.version>4.0.5.RELEASE</spring.version>
     </properties>
