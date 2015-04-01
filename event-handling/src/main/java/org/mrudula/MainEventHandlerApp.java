@@ -21,6 +21,5 @@ public class MainEventHandlerApp extends Application {
         ApplicationContext context = new AnnotationConfigApplicationContext(MainEventHandlerAppConfiguration.class);
         MainEventController mainEventController = context.getBean( MainEventController.class);
         mainEventController.launch(stage);
-
     }
 }
