@@ -60,8 +60,8 @@ public class MapRegion extends VBox {
         map.setVisible(true);
     }
 
-    public void findWeatherFromMap(String lon,String lat, String unitType) {
-            weatherQuery.findWeatherFromMap(lon,lat,unitType,jsObject);
+    public void findWeatherFromMap(String lon,String lat) {
+            weatherQuery.findWeatherFromMap(lon,lat,jsObject);
     }
 
 }

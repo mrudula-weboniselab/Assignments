@@ -1,6 +1,5 @@
 package org.mrudula.region;
 
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -10,7 +9,6 @@ import javafx.scene.control.TextField;
 import javafx.scene.input.InputEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-import org.mrudula.models.CoordAttribute;
 import org.mrudula.utils.WeatherQuery;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -42,7 +40,6 @@ public class UIRegion extends VBox {
     private Button latLngSearch;
 
     WeatherQuery weatherQuery = new WeatherQuery();
-    SimpleObjectProperty<CoordAttribute> coordAttribute = new SimpleObjectProperty<>();
 
     public List<HBox> listOfWeatherData = new ArrayList<>();
     public List<HBox> listOfWeatherData1 =  new ArrayList<>();
@@ -97,17 +94,15 @@ public class UIRegion extends VBox {
         weatherDataInfo1.getChildren().clear();
     }
 
-    public void weatherDataFromMap(final String mapLng, final String mapLat) {
+    public String weatherDataFromMap(final String mapLng, final String mapLat) {
         latLngSearch.setOnAction(event -> {
             LOG.debug("EVENT OCCURS : " + lat.getText());
             clearWeatherData();
-            weatherQuery.findWeatherByLatLng(lng.getText(),lat.getText(),"c");
+            weatherQuery.findWeatherByLatLng(mapLng,mapLat,"c");
             showWeatherData();
         });
-
-        lat.setText(mapLat);
-        lng.setText(mapLng);
         latLngSearch.fire();
+        return (String) weatherQuery.getWeatherData().get("Temp : ");
     }
 
     public void showWeatherData(){
@@ -134,15 +129,4 @@ public class UIRegion extends VBox {
         weatherDataInfo1.getChildren().addAll(listOfWeatherData1);
     }
 
-    public CoordAttribute getCoordAttribute() {
-        return coordAttribute.get();
-    }
-
-    public SimpleObjectProperty<CoordAttribute> coordAttributeProperty() {
-        return coordAttribute;
-    }
-
-    public void setCoordAttribute(CoordAttribute coordAttribute) {
-        this.coordAttribute.set(coordAttribute);
-    }
 }

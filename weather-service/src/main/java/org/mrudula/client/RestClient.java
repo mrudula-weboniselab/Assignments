@@ -1,6 +1,6 @@
 package org.mrudula.client;
 
-import org.mrudula.utils.WeatherResult;
+import org.mrudula.models.WeatherResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;

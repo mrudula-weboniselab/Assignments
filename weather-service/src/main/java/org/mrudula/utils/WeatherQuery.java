@@ -25,6 +25,7 @@ public class WeatherQuery extends Region {
     public static final String WEATHER_URL = "http://api.openweathermap.org/data/2.5/weather";
     public LinkedHashMap weatherData = new LinkedHashMap();
     public LinkedHashMap weatherDataMap = new LinkedHashMap();
+
     RestClient restClient = new RestClient();
 
     public void findWeatherByLocation(String cityRegion, String unitType) {
@@ -44,18 +45,12 @@ public class WeatherQuery extends Region {
         weatherData = restClient.getWeatherData();
     }
 
-    public void findWeatherFromMap(String lon, String lats, String unitType, JSObject jsObject) {
-        String lng = lon;
-        String lat = lats;
-        String units = "f".equalsIgnoreCase(unitType) ? "imperial" : "metric";
-        String weatherRequest = WEATHER_URL + "?lat=" + lat + "&lon=" + lng + "&" + "units=" + units + "&" + "mode=json";
-        restClient.performGet(weatherRequest);
-        weatherData = restClient.getWeatherData();
-        jsObject.setMember("temp", (String) weatherData.get("Temp : "));
-        uiRegion.weatherDataFromMap(lon,lat);
+    public void findWeatherFromMap(String lon, String lats, JSObject jsObject) {
+        String temp = uiRegion.weatherDataFromMap(lon,lats);
+        jsObject.setMember("temp",temp);
     }
 
-    public HashMap getWeatherData() {
+    public LinkedHashMap getWeatherData() {
         return weatherData;
     }
 
