@@ -9,27 +9,88 @@
      -fx-padding:0 10 10 10;
 }
 .button{
-    -fx-background-color: blue;
-    -fx-background-radius: 3px;
-    -fx-font-family:'QuicksandBold-Regular';
-    -fx-font-size: 14;
-    -fx-text-fill: #ffffff;
-
+    -fx-text-fill: white;
+    -fx-font-family: "Arial Narrow";
+    -fx-font-weight: bold;
+    -fx-background-color: linear-gradient(#61a2b1, #2A5058);
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+.button:hover {
+    -fx-background-color: linear-gradient(#2A5058, #61a2b1);
 }
 .headerLable{
-     -fx-font-family:'QuicksandBold-Regular';
-     -fx-font-size: 20;
-     -fx-text-fill: blue;
+    -fx-font-family:'QuicksandBold-Regular';
+    -fx-font-size: 20;
+    -fx-text-fill: blue;
 }
 .keyLable{
      -fx-font-family:'QuicksandBold-Regular';
      -fx-font-size: 12;
 }
 .valueLable{
-    -fx-font-family:'QuicksandBold-Regular';
+    -fx-font-family: "Arial Black";
+    -fx-effect: innershadow( three-pass-box , rgba(0,0,0,0.7) , 6, 0.0 , 0 , 2 );
     -fx-font-size: 12;
     -fx-text-fill: blue;
 }
 .weatherDataInfo{
    -fx-padding:0 0 0 20;
+}
+.headerLogoHBox{
+   -fx-background-image: url("../images/weatherLogo.jpg");
+   -fx-background-repeat: stretch;
+   -fx-alignment:top-center;
+   -fx-min-width:500;
+   -fx-pref-width:500;
+   -fx-pref-height:50;
+   -fx-min-height:50;
+}
+.headerRegion{
+   -fx-background-image: url("../images/weatherHeader.jpg");
+}
+.headerLabel{
+   -fx-font-family:'QuicksandBold-Regular';
+   -fx-font-weight:bold;
+   -fx-padding: 10 0 0 0;
+   -fx-text-fill: #fff;
+   -fx-font-size:18;
+}
+.textField{
+  -fx-pref-width:75;
+}
+.cityBox{
+  -fx-padding:10 0 0 0;
+}
+.mainLabel{
+  -fx-font-size: 14px;
+  -fx-font-weight: bold;
+  -fx-text-fill: #333333;
+  -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+.weatherCity{
+  -fx-font-size: 22px;
+  -fx-padding: 5 0 0 50;
+  -fx-font-weight: bold;
+  -fx-text-fill:#FE642E;
+  -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+.weatherTemp{
+  -fx-font-size: 18px;
+  -fx-padding: 0 0 0 60;
+  -fx-text-fill:#3B0B17;
+  -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+.weatherRange{
+  -fx-padding:0 0 0 45;
+}
+.gridPaneBox{
+   -fx-max-width:600;
+   -fx-min-width:600;
+   -fx-pref-width:600;
+   -fx-padding:5 0 0 30;
+}
+.gridLabel{
+   -fx-padding:5 15 5 15;
+   -fx-text-fill:#3B0B17;
+   -fx-font-size:14px;
 }

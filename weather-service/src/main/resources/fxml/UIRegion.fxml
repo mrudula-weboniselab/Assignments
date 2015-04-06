@@ -7,10 +7,10 @@
 
     <HBox>
         <VBox>
-            <HBox>
+            <HBox styleClass="cityBox">
                 <HBox styleClass="weatherBox">
-                    <Label text="Enter City :"></Label>
-                    </HBox>
+                    <Label text="Enter City :" styleClass="mainLabel"></Label>
+                </HBox>
                 <HBox styleClass="weatherBox">
                     <TextField promptText="Enter City" fx:id="cityNameTextField"></TextField>
                 </HBox>
@@ -19,25 +19,67 @@
                 </HBox>
             </HBox>
 
-            <HBox>
+            <HBox styleClass="cityBox">
                 <HBox styleClass="weatherBox">
-                    <Label text="Enter Lat Lng :"></Label>
-                    <TextField promptText="lat" fx:id="lat"></TextField>
-                    </HBox>
+                    <Label text="Enter LatLng : " styleClass="mainLabel"></Label>
+                    <TextField promptText="lat" styleClass="textField" fx:id="lat"></TextField>
+                </HBox>
                 <HBox>
-                    <TextField promptText="lng" fx:id="lng"></TextField>
+                    <TextField promptText="lng" styleClass="textField" fx:id="lng"></TextField>
                 </HBox>
                 <HBox styleClass="weatherBox">
                     <Button text="Search" fx:id="latLngSearch"></Button>
                 </HBox>
             </HBox>
         </VBox>
-        <VBox fx:id="weatherInfo">
-            <HBox>
-                <VBox fx:id="weatherDataInfo" styleClass="weatherDataInfo"></VBox>
-                <VBox fx:id="weatherDataInfo1" styleClass="weatherDataInfo"></VBox>
-            </HBox>
-        </VBox>
+        <HBox fx:id="weatherInfo">
+            <VBox>
+                <Label fx:id="cityName" styleClass="weatherCity"></Label>
+                <Label fx:id="cityTemp" styleClass="weatherTemp"></Label>
+                <Label fx:id="cityMinMax" styleClass="weatherRange"></Label>
+            </VBox>
+            <VBox styleClass="gridPaneBox">
+                <!--<HBox>
+                    <VBox fx:id="weatherDataInfo" styleClass="weatherDataInfo"></VBox>
+                    <VBox fx:id="weatherDataInfo1" styleClass="weatherDataInfo"></VBox>
+                </HBox>-->
+                <GridPane>
+
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="0">
+                        <Label text="Pressure" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="1">
+                        <Label text="Humidity" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="2">
+                        <Label text="Sunrise" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                        <Label text="Sunset" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                        <Label text="Geo-Coords" styleClass="gridLabel"></Label>
+                    </HBox>
+
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="0">
+                        <Label fx:id="pressure" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                        <Label fx:id="humidity" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                        <Label fx:id="sunrise" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                        <Label fx:id="sunset" styleClass="gridLabel"></Label>
+                    </HBox>
+                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="4">
+                        <Label fx:id="geoCoords" styleClass="gridLabel"></Label>
+                    </HBox>
+
+                </GridPane>
+            </VBox>
+        </HBox>
     </HBox>
 
 </fx:root>

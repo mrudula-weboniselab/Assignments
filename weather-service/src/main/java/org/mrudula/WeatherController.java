@@ -1,9 +1,9 @@
 package org.mrudula;
 
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
+import org.mrudula.region.HeaderRegion;
 import org.mrudula.region.MapRegion;
 import org.mrudula.region.UIRegion;
 import org.mrudula.utils.WeatherQuery;
@@ -23,12 +23,12 @@ public class WeatherController extends BorderPane {
 
     @Autowired
     private MapRegion mapRegion;
-
     @Autowired
     private UIRegion uiRegion;
-
     @Autowired
     private WeatherQuery weatherQuery;
+    @Autowired
+    private HeaderRegion headerRegion;
 
    // WeatherQuery weatherQuery = new WeatherQuery();
 
@@ -45,11 +45,8 @@ public class WeatherController extends BorderPane {
     }
 
     private void layoutRegions() {
-        this.setTop(mapRegion);
-        Label title = new Label("Weather Report");
-        title.getStylesheets().add("css/weather_demo.css");
-        title.getStyleClass().add("headerLable");
-        this.setCenter(title);
-        this.setBottom(uiRegion);
+        this.setTop(headerRegion);
+        this.setCenter(uiRegion);
+        this.setBottom(mapRegion);
     }
 }

@@ -1,0 +1,12 @@
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<fx:root type="javafx.scene.layout.HBox" stylesheets="/css/weather_demo.css" styleClass="headerRegion" xmlns:fx="http://javafx.com/fxml">
+
+
+    <HBox fx:id="headerLogoHBox"
+          styleClass="headerLogoHBox"
+            />
+    <HBox styleClass="headerBox"><Label text="Weather Report" styleClass="headerLabel"/> </HBox>
+
+</fx:root>

@@ -7,7 +7,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.input.InputEvent;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import org.mrudula.utils.WeatherQuery;
 import org.slf4j.Logger;
@@ -15,7 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
 
 /**
  * Created by webonise on 16-03-2015.
@@ -33,16 +32,25 @@ public class UIRegion extends VBox {
     @FXML
     private Button citySearch;
     @FXML
-    public VBox weatherDataInfo;
+    private Label pressure;
     @FXML
-    public VBox weatherDataInfo1;
+    private Label humidity;
+    @FXML
+    private Label sunrise;
+    @FXML
+    private Label sunset;
+    @FXML
+    private Label geoCoords;
     @FXML
     private Button latLngSearch;
+    @FXML
+    private Label cityName;
+    @FXML
+    private Label cityTemp;
+    @FXML
+    private Label cityMinMax;
 
     WeatherQuery weatherQuery = new WeatherQuery();
-
-    public List<HBox> listOfWeatherData = new ArrayList<>();
-    public List<HBox> listOfWeatherData1 =  new ArrayList<>();
 
     public UIRegion() {
         super();
@@ -63,7 +71,6 @@ public class UIRegion extends VBox {
         EventHandler<InputEvent> eventHandler = new EventHandler<InputEvent>() {
             @Override
             public void handle(InputEvent event) {
-                clearWeatherData();
                 weatherQuery.findWeatherByLocation(cityNameTextField.getText(),"c");
                 showWeatherData();
              }
@@ -71,7 +78,6 @@ public class UIRegion extends VBox {
         EventHandler<InputEvent> eventHandlerForLatLong = new EventHandler<InputEvent>() {
             @Override
             public void handle(InputEvent event) {
-                clearWeatherData();
                 weatherQuery.findWeatherByLatLng(lng.getText(),lat.getText(),"c");
                 showWeatherData();
             }
@@ -82,51 +88,36 @@ public class UIRegion extends VBox {
     }
 
     public void defaultWeatherDataInfo(){
-        clearWeatherData();
+
         weatherQuery.findWeatherByLocation("London", "c");
         showWeatherData();
     }
 
-    public void clearWeatherData(){
-        listOfWeatherData.clear();
-        listOfWeatherData1.clear();
-        weatherDataInfo.getChildren().clear();
-        weatherDataInfo1.getChildren().clear();
-    }
-
     public String weatherDataFromMap(final String mapLng, final String mapLat) {
         latLngSearch.setOnAction(event -> {
-            LOG.debug("EVENT OCCURS : " + lat.getText());
-            clearWeatherData();
+            clearData();
             weatherQuery.findWeatherByLatLng(mapLng,mapLat,"c");
             showWeatherData();
         });
         latLngSearch.fire();
-        return (String) weatherQuery.getWeatherData().get("Temp : ");
+        return (String) weatherQuery.getWeatherData().get("Temp");
+    }
+
+    public void clearData(){
+        lat.setText("");
+        lng.setText("");
+        cityNameTextField.setText("");
     }
 
     public void showWeatherData(){
-        Set set = weatherQuery.getWeatherData().entrySet();
-        Iterator iterator = set.iterator();
-        int count = 0;
-        while (iterator.hasNext()) {
-            count++;
-            HBox hBox = new HBox();
-            Map.Entry info = (Map.Entry) iterator.next();
-            Label labelKey = new Label((String) info.getKey());
-            Label lableValue = new Label((String) info.getValue());
-            hBox.getStylesheets().add("css/weather_demo.css");
-            labelKey.getStyleClass().add("keyLable");
-            lableValue.getStyleClass().add("valueLable");
-            hBox.getChildren().addAll(labelKey, lableValue);
-            if (count <= 6) {
-                listOfWeatherData.add(hBox);
-            } else {
-                listOfWeatherData1.add(hBox);
-            }
-        }
-        weatherDataInfo.getChildren().addAll(listOfWeatherData);
-        weatherDataInfo1.getChildren().addAll(listOfWeatherData1);
+        HashMap weatherData = weatherQuery.getWeatherData();
+        cityName.setText((String)weatherData.get("City")+","+(String)weatherData.get("Country"));
+        cityTemp.setText((String)weatherData.get("Temp"));
+        cityMinMax.setText("[Min Temp : "+(String)weatherData.get("maxTemp")+",\n Max Temp: "+(String)weatherData.get("minTemp")+" ]");
+        pressure.setText((String)weatherData.get("pressure"));
+        humidity.setText((String)weatherData.get("humidity"));
+        sunrise.setText((String)weatherData.get("sunrise"));
+        sunset.setText((String)weatherData.get("sunset"));
+        geoCoords.setText("[ "+(String)weatherData.get("Latitude")+", "+(String)weatherData.get("Longitude")+" ]");
     }
-
 }

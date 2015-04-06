@@ -48,22 +48,22 @@ public class RestClient {
     public void setWeatherData(WeatherResult weatherResult){
         int resultSunrise = Integer.parseInt(weatherResult.getSys().getSunrise());
         int resultSunset = Integer.parseInt(weatherResult.getSys().getSunset());
-        SimpleDateFormat df = new SimpleDateFormat("hh:mm:ss a", Locale.ENGLISH);
+        SimpleDateFormat df = new SimpleDateFormat("hh:mm a", Locale.ENGLISH);
         String sunrise = df.format(new Date(resultSunrise * 1000).getTime());
         String sunset = df.format(new Date(resultSunset * 1000).getTime());
 
-        weatherData.put("City Name : ", weatherResult.getName());
-        weatherData.put("Country : ", weatherResult.getSys().getCountry());
-        weatherData.put("Latitude : ", weatherResult.getCoord().getLat());
-        weatherData.put("Longitude : ", weatherResult.getCoord().getLon());
-        weatherData.put("Date : ",weatherResult.getDt());
-        weatherData.put("Temp : ", weatherResult.getMain().getTemp() + " " + DEGREE + "C");
-        weatherData.put("maxTemp : ",weatherResult.getMain().getTemp_max() + " " + DEGREE + "C");
-        weatherData.put("minTemp : ",weatherResult.getMain().getTemp_min() + " " + DEGREE + "C");
-        weatherData.put("pressure : ", weatherResult.getMain().getPressure());
-        weatherData.put("humidity : ", weatherResult.getMain().getHumidity());
-        weatherData.put("sunrise : ", sunrise);
-        weatherData.put("sunset : ", sunset);
+        weatherData.put("City", weatherResult.getName());
+        weatherData.put("Country", weatherResult.getSys().getCountry());
+        weatherData.put("Latitude", weatherResult.getCoord().getLat());
+        weatherData.put("Longitude", weatherResult.getCoord().getLon());
+        weatherData.put("Date",weatherResult.getDt());
+        weatherData.put("Temp", weatherResult.getMain().getTemp().substring(0,4) + " " + DEGREE + "C");
+        weatherData.put("maxTemp",weatherResult.getMain().getTemp_max().substring(0,4) + " " + DEGREE + "C");
+        weatherData.put("minTemp",weatherResult.getMain().getTemp_min().substring(0,4) + " " + DEGREE + "C");
+        weatherData.put("pressure", weatherResult.getMain().getPressure());
+        weatherData.put("humidity", weatherResult.getMain().getHumidity());
+        weatherData.put("sunrise", sunrise);
+        weatherData.put("sunset", sunset);
     }
 
     public LinkedHashMap getWeatherData() {
