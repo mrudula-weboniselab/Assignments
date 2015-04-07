@@ -1,7 +1,5 @@
 <?import javafx.scene.control.*?>
-
 <?import javafx.scene.layout.*?>
-
 
 <fx:root type="javafx.scene.layout.VBox" stylesheets="/css/weather_demo.css" styleClass="uiRegion" xmlns:fx="http://javafx.com/fxml">
 
@@ -39,11 +37,7 @@
                 <Label fx:id="cityMinMax" styleClass="weatherRange"></Label>
             </VBox>
             <VBox styleClass="gridPaneBox">
-                <!--<HBox>
-                    <VBox fx:id="weatherDataInfo" styleClass="weatherDataInfo"></VBox>
-                    <VBox fx:id="weatherDataInfo1" styleClass="weatherDataInfo"></VBox>
-                </HBox>-->
-                <GridPane>
+                 <GridPane>
 
                     <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="0">
                         <Label text="Pressure" styleClass="gridLabel"></Label>
@@ -54,12 +48,12 @@
                     <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="2">
                         <Label text="Sunrise" styleClass="gridLabel"></Label>
                     </HBox>
-                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="3">
-                        <Label text="Sunset" styleClass="gridLabel"></Label>
-                    </HBox>
-                    <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="4">
-                        <Label text="Geo-Coords" styleClass="gridLabel"></Label>
-                    </HBox>
+                     <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="3">
+                         <Label text="Sunset" styleClass="gridLabel"></Label>
+                     </HBox>
+                     <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="0" GridPane.rowIndex="4">
+                         <Label text="Geo-Coords" styleClass="gridLabel"></Label>
+                     </HBox>
 
                     <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="0">
                         <Label fx:id="pressure" styleClass="gridLabel"></Label>
@@ -70,6 +64,7 @@
                     <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="2">
                         <Label fx:id="sunrise" styleClass="gridLabel"></Label>
                     </HBox>
+
                     <HBox  style="-fx-border-width: 1; -fx-border-style: solid;" GridPane.columnIndex="1" GridPane.rowIndex="3">
                         <Label fx:id="sunset" styleClass="gridLabel"></Label>
                     </HBox>

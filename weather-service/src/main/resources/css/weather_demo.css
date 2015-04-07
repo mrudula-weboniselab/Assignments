@@ -84,8 +84,8 @@
   -fx-padding:0 0 0 45;
 }
 .gridPaneBox{
-   -fx-max-width:600;
-   -fx-min-width:600;
+   -fx-max-width:300;
+   -fx-min-width:300;
    -fx-pref-width:600;
    -fx-padding:5 0 0 30;
 }
