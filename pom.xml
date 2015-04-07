@@ -7,7 +7,6 @@
     <groupId>org.mrudula</groupId>
     <artifactId>Assignments</artifactId>
     <version>1.0-SNAPSHOT</version>
-
     <packaging>pom</packaging>
 
     <modules>
